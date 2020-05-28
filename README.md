@@ -1,52 +1,24 @@
-# Deno WebSocket
-🦕A simple WebScoket library like [ws of node.js library](https://github.com/websockets/ws)
+# Real-time Chat App with Deno and Websockets
 
-# Quick Start
+## Demo
 
-## Example of cli
+### Join to chat page
+![Chat join page](https://i.imgur.com/BCXT0Ba.png)
 
-server
+### Chat page
+![Chat page](https://i.imgur.com/h0FE6pY.png)
 
-```bash
-$ deno run --allow-net https://deno.land/x/websocket/example/server.ts 
-```
+--------------------
 
-client
+## Installation
+You need to have [Deno installed](https://deno.land/#installation) in order to run this app locally
 
-```bash
-$ deno run --allow-net https://deno.land/x/websocket/example/client.ts 
-> ws connected! (type 'close' to quit)
-> something
-```
+1. Clone the repository
+2. Go to the project root using terminal
+3. Run `deno run --allow-net server.js`
+4. Open `public/chat.html` in browser
+5. That's all.
 
-## Usage
 
-server
-
-```typescript
-import { WebSocket, WebSocketServer } from "https://deno.land/x/websocket/mod.ts";
-
-const wss = new WebSocketServer(8080);
-wss.on("connection", function (ws: WebSocket) {
-  ws.on("message", function (message: string) {
-    console.log(message);
-    ws.send(message)
-  });
-});
-
-```
-
-client
-
-```typescript
-import { WebSocket } from "https://deno.land/x/websocket/mod.ts";
-const endpoint = "ws://127.0.0.1:8080";
-const ws: WebSocket = new WebSocket(endpoint);
-ws.on("open", function() {
-  console.log("ws connected!");
-});
-ws.on("message", function (message: string) {
-  console.log(message);
-});
-ws.send("something");
-```
+> The project was created along with Youtube Video ["Build Realtime Chat App with Deno and WebSockets"](https://youtu.be/XWyUtYL6ynE). 
+> I appreaciate if you like the video and share it.
